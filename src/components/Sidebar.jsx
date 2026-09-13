@@ -10,13 +10,13 @@ function Sidebar({ items }) {
         <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white">A</div>
         <div>
           <h2 className="text-sm font-bold tracking-[0.16em] text-white">ADMIN PANEL</h2>
-          <p className="mt-1 text-xs text-slate-500">Espace de gestion</p>
+          {/* <p className="mt-1 text-xs text-slate-500">Espace de gestion</p> */}
         </div>
       </div>
 
       <div className="mb-5 border-t border-slate-800" />
       <nav aria-label="Navigation principale">
-        <p className="mb-3 px-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Navigation</p>
+        {/* <p className="mb-3 px-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Navigation</p> */}
         <ul className="space-y-1">
           {mainItems.map((item, index) => (
             <li key={index}>
