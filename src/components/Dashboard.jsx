@@ -7,24 +7,6 @@ import {
   faUserPlus,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
-
-const revenueData = [
-  { month: 'Janvier', revenue: 850000 },
-  { month: 'Février', revenue: 920000 },
-  { month: 'Mars', revenue: 1050000 },
-  { month: 'Avril', revenue: 980000 },
-  { month: 'Mai', revenue: 1150000 },
-  { month: 'Juin', revenue: 1250000 },
-]
-
-const statisticsData = [
-  { name: 'Utilisateurs', value: 120 },
-  { name: 'Produits', value: 85 },
-  { name: 'Commandes', value: 42 },
-]
-
-const formatCurrency = (value) => `${new Intl.NumberFormat('fr-FR').format(value)} FCFA`
 
 function Dashboard({ welcomeMessage, users, products, orders, revenue }) {
   return (
@@ -73,44 +55,6 @@ function Dashboard({ welcomeMessage, users, products, orders, revenue }) {
             </div>
             <p className="text-2xl font-bold tracking-tight text-gray-900">{revenue}</p>
           </div>
-        </div>
-
-        <div className="mb-8 grid grid-cols-1 gap-6 xl:grid-cols-3">
-          <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm xl:col-span-2">
-            <div className="mb-5">
-              <h3 className="text-lg font-semibold text-gray-900">Évolution des revenus</h3>
-              <p className="mt-1 text-sm text-gray-500">Données de démonstration en FCFA</p>
-            </div>
-            <div className="h-[300px] w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={revenueData} margin={{ top: 8, right: 8, left: 8, bottom: 8 }}>
-                  <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" vertical={false} />
-                  <XAxis dataKey="month" tick={{ fill: '#6b7280', fontSize: 12 }} tickLine={false} axisLine={false} />
-                  <YAxis tickFormatter={(value) => `${value / 1000000}M`} tick={{ fill: '#6b7280', fontSize: 12 }} tickLine={false} axisLine={false} width={42} />
-                  <Tooltip formatter={(value) => [formatCurrency(value), 'Revenus']} contentStyle={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
-                  <Line type="monotone" dataKey="revenue" stroke="#2563eb" strokeWidth={3} dot={{ r: 4, fill: '#2563eb', strokeWidth: 2, stroke: '#ffffff' }} activeDot={{ r: 6 }} />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-          </section>
-
-          <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-            <div className="mb-5">
-              <h3 className="text-lg font-semibold text-gray-900">Statistiques</h3>
-              <p className="mt-1 text-sm text-gray-500">Vue synthétique des données</p>
-            </div>
-            <div className="h-[300px] w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={statisticsData} margin={{ top: 8, right: 8, left: -18, bottom: 8 }}>
-                  <CartesianGrid stroke="#e5e7eb" strokeDasharray="3 3" vertical={false} />
-                  <XAxis dataKey="name" tick={{ fill: '#6b7280', fontSize: 11 }} tickLine={false} axisLine={false} />
-                  <YAxis tick={{ fill: '#6b7280', fontSize: 12 }} tickLine={false} axisLine={false} />
-                  <Tooltip formatter={(value) => [value, 'Total']} contentStyle={{ borderRadius: '8px', border: '1px solid #e5e7eb' }} />
-                  <Bar dataKey="value" fill="#0f766e" radius={[5, 5, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </section>
         </div>
 
         <div className="mb-8 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
